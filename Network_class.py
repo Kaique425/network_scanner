@@ -7,17 +7,11 @@ import nmap
 
 
 class Network:
-    def __init__(self, choice):
-        self.choice = choice
+    def __init__(self, network="192.168.4.1/24"):
+        self.network = network
 
     def networkscanner(self):
-        network = "192.168.4.1/24"
         nm = nmap.PortScanner()
-        nm.scan(hosts=network, arguments="-sn")
+        nm.scan(hosts=self.network, arguments="-sn")
         host_list = [(x, nm[x]["status"]["state"]) for x in nm.all_hosts()]
         return host_list
-
-
-if __name__ == "__main__":
-    D = Network("192.168.1.1/24")
-    D.networkscanner()

@@ -13,6 +13,9 @@ def write_host_info(name, ip):
         file.write(text)
 
 
+""" Write all ip that is unreachble """
+
+
 def write_unreachble_ips(ip):
     with open("Unreachble_ips.txt", "a") as file:
         text = f"IP: {ip} \n"
@@ -28,16 +31,16 @@ def clean_host(host_specs):
     return clean_text
 
 
-D = Network("hub")
+D = Network()
 host_list = D.networkscanner()
 for host_ip in host_list:
     try:
-        print(f" Ip encontrado: {host_ip[0]}")
+        print(f"IP found: {host_ip[0]}")
         host_info = socket.gethostbyaddr(host_ip[0])
         host_name = clean_host(host_info)
         write_host_info(host_name, host_ip)
 
     except Exception:
         write_unreachble_ips(host_ip[0])
-        print(f"{host_ip[0]} Esgotou o tempo limite de pedido.")
+        print(f"This IP: {host_ip[0]} is unreachble .")
         pass

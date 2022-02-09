@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#VScode
+.vscode
+
+#local files
+Host_info.txt
+Unreachble_ips.txt
