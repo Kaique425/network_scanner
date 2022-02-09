@@ -22,7 +22,7 @@ def write_unreachble_ips(ip):
         file.write(text)
 
 
-""" This function get only the host name instead of 'example.unimed197.local' """
+""" This function get only the host name instead of 'example.teste299.local' """
 
 
 def clean_host(host_specs):
